@@ -1,0 +1,37 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-block: 1rem;
+    padding: 0 1rem;
+}
+
+.navbar a{
+    text-decoration: none;
+    transition: .4s;
+}
+
+.navbar h2{
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.navbar h2 a{
+    opacity: 1;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.new-post {
+    background-color: white;
+    padding: .4rem;
+    border-radius: 4px;
+    color: black !important;
+}
