@@ -1,4 +1,4 @@
-import '../css/App.css'
+import { Container } from '../css/AppCSS'
 import { Outlet } from 'react-router-dom'
 import { Navbar } from './Navbar'
 import { useEffect } from 'react'
@@ -16,12 +16,12 @@ function App() {
   })
 
   return (
-    <div className="app">
+    <Container>
       <Navbar />
       <div className="container">
         <Outlet />
       </div>
-    </div>
+    </Container>
   )
 }
 
