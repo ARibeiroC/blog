@@ -12,6 +12,7 @@ Neste projeto desenvolvemos uma aplicação web onde podemos postar, editar e ex
   - [x] Logo
 - [x] Home
   - [x] Component Post
+    - [x] Exibir todas as categorias relacionadas ao post.
     - [x] LER MAIS (Funcionalidade que abre a página do post.)
   - [x] Listar Posts por ordem de datas decrescente.
 - [x] Novo Post
