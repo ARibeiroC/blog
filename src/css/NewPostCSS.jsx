@@ -52,11 +52,12 @@ export const NewPostCSS = styled.div`
                     resize: none;
                     outline: none;
                     padding: .4rem;
-                    border: 1px solid;
+                    // border: 1px solid;
+                    // line-height: 200%;
 
-                    &:hover {
-                        border-color: 1px solid aqua;
-                    }
+                    // &:hover {
+                    //     border-color: 1px solid aqua;
+                    // }
                 }
             }
         }

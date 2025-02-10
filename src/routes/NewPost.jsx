@@ -2,11 +2,13 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { useCreatePost } from "../Hook/useCreatePost";
+// IMPORTAÇÕES DOS CUSTOM HOOKS
+import { useCreatePost } from "../hook/useCreatePost";
+import { useGetPosts } from "../hook/useGetPosts";
 
 // IMPORTAÇÃO DOS ESTILOS CSS (STYLED-COMPONENTS)
 import { NewPostCSS } from "../css/NewPostCSS";
-import { ConfirmPost } from "../componets/ConfirmPost";
+import { ConfirmPost } from "../components/ConfirmPost";
 
 // CRIANDO O COMPONENTE NEWPOST
 export function NewPost() {
@@ -21,8 +23,8 @@ export function NewPost() {
     const refContent = useRef()
     const refAuthor = useRef()
     const navigate = useNavigate()
+    const {data} = useGetPosts()
     
-    // IMPORTAÇÕES DOS CUSTOM HOOKS
 
     // FUNÇÃO QUE SET OS VALORES NOS STATES DO COMPONENTE
     function setStates(array){
@@ -51,6 +53,7 @@ export function NewPost() {
         })
 
         setVisibility('visible')
+
         setTimeout(()=>{
             setVisibility('hidden')
         },2000)
@@ -59,10 +62,12 @@ export function NewPost() {
         setCategories(listChecks)
     }
 
-    function sendPost(post){
-        const data = JSON.parse(localStorage.getItem('posts'))
+    function createPost(post){
         data.push(post)
         localStorage.setItem('posts', JSON.stringify(data))
+        setTimeout(()=>{
+            navigate('/')
+        }, 2000)
     }
 
     // FUNÇÃO QUE É EXECUTADO QUANDO O FORMULÁRIO É SUBMETIDO.
@@ -86,10 +91,7 @@ export function NewPost() {
         // CRIA A CLASSE DE NEWPOST PASSANDO OS PARAMETROS DOS STATES PARA A CLASSE.
         const post = useCreatePost(title, content, author, categories)
         if (post.title !== ''){
-            sendPost(post)
-            setTimeout(()=>{
-                navigate('/')
-            }, 2000)
+            createPost(post)
         }
 
     },[title, content, author, categories]) //CHAMA O USEEFFECT TODA VEZ QUE ALGUM DOS STATES É ALTERADO
@@ -102,19 +104,19 @@ export function NewPost() {
                 <div className="input-fields">
                     <div className="form-control">
                         <label htmlFor="title">Título: </label>
-                        <input type="text" placeholder="" id="title" name="title" ref={refTitle} />
+                        <input type="text" placeholder="" id="title" name="title" ref={refTitle} required />
                     </div>
                     <div className="form-control">
                         <label htmlFor="content">Conteúdo: </label>
-                        <input id="content" name="content" ref={refContent} />
+                        <textarea name="content" id="content"  ref={refContent} required></textarea>
                     </div>
                     <div className="form-control">
                         <label htmlFor="author">autor: </label>
-                        <input type="text" placeholder="" id="author" name="author" ref={refAuthor} />
+                        <input type="text" placeholder="" id="author" name="author" ref={refAuthor} required />
                     </div>
                 </div>
                 <div className="checkbox-items">
-                    <fieldset id='fieldset'>
+                    <fieldset id='fieldset' required>
                         <legend>Categorias</legend>
                         <div className="item-check">
                             <input type="checkbox" name="Cosmologia" id="cosmology" />

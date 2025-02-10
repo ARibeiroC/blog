@@ -3,10 +3,11 @@ import { createRoot } from 'react-dom/client'
 import { Home } from './routes/Home'
 import { NewPost } from './routes/NewPost'
 import { Post } from './routes/Post.jsx'
+import { Admin } from './routes/Admin.jsx'
 import './css/index.css'
-import App from './componets/App.jsx'
+import App from './components/App.jsx'
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom'
 
 
 const router = createBrowserRouter([
@@ -15,16 +16,24 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
+        element: <Navigate to='/blog' />
+      },
+      {
+        path: '/blog',
         element: <Home />,
       },
       {
-        path: '/new-post',
+        path: '/blog/new-post',
         element: <NewPost />
       },
       {
-        path: '/post/:id',
+        path: '/blog/post/:id',
         element: <Post/>
-      }
+      },
+      {
+        path: '/blog/admin/',
+        element: <Admin/>
+      },
     ]
   }
 ])

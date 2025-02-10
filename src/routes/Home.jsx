@@ -1,32 +1,26 @@
-import {useState, useEffect } from 'react'
+import { useGetPosts } from '../hook/useGetPosts'
 
 import { Link } from 'react-router-dom'
 
 // STYLED COMPONENTS IMPORT
 import { HomeStyleCSS } from '../css/HomeCSS'
+import { useEffect } from 'react'
 
 
 export function Home(){
-
-    const [data, setData] = useState([])
-    const storage = JSON.parse(localStorage.getItem('posts'))
-
-
-    useEffect(()=>{
-        setData(storage.toReversed())
-    },[])
-
+    const {data: posts} = useGetPosts()
+    const sortdata = posts.toReversed()
     return (
         <div className='Home'>
             <HomeStyleCSS>
                 <h2>ULTIMOS POSTS</h2>
-                {data.length === 0 ? <p>Carregando...</p> : (
-                    data.map((post)=> (
+                {sortdata.length === 0 ? <p>Carregando...</p> : (
+                    sortdata.map((post)=> (
                         <div className='posts' key={post.id}>
                                 <h2 className="title"> {post.title} </h2>
                                 <h4>Autor: {post.author} | {post.date}</h4>
                                 <div className="body"> {post.content} </div>
-                                <Link to={`/post/${post.id}`} className="more">Ler mais</Link>
+                                <Link to={`/blog/post/${post.id}`} className="more">Ler mais</Link>
                                 <div className='categories'>
                                     <h4>Categorias</h4>
                                     {post.categories.map((cat, index)=>(

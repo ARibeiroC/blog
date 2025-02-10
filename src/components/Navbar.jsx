@@ -12,7 +12,10 @@ export function Navbar(){
                     <Link to={'/'}>Página Inicial</Link>
                 </li>
                 <li>
-                    <Link to={'/new-post'} className="new-post">Novo Post</Link>
+                    <Link to={'/blog/new-post'} className="new-post">Novo Post</Link>
+                </li>
+                <li>
+                    <Link to={'/blog/admin'} className="new-post">Gerenciar</Link>
                 </li>
             </ul>
         </NavbarStyle>

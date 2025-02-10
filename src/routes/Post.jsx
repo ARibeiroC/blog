@@ -3,18 +3,23 @@ import { useParams } from "react-router-dom"
 import { PostCSS } from "../css/PostCSS"
 
 export function Post(){
-    const postId = useParams()
+    const { id } = useParams()
     const posts = JSON.parse(localStorage.getItem('posts'))
     const [currentPost, setCurrentPost] = useState([])
     
-    function getCurrentPost(posts){
-        posts.map((post)=>{
-            if (post.id === parseInt(postId.id)){
-                setCurrentPost(post)
-            }
-        })
+    async function getCurrentPost(posts){
+        try {
+            const response = await JSON.parse(localStorage.getItem('posts'))
+            posts.map((post)=>{
+                if (post.id === parseInt(id)){
+                    setCurrentPost(post)
+                }
+            })
+        } catch (error) {
+            
+        }
+       
     }
-
 
     useEffect(()=>{
         getCurrentPost(posts)

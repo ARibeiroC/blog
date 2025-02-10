@@ -2,7 +2,7 @@ import '../css/App.css'
 import { Outlet } from 'react-router-dom'
 import { Navbar } from './Navbar'
 import { useEffect } from 'react'
-import { useData } from '../Hook/useData'
+import { useData } from '../hook/useData'
 
 function App() {
 
