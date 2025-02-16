@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom'
 
 // STYLED COMPONENTS IMPORT
 import { HomeStyleCSS } from '../css/HomeCSS'
-import { useEffect } from 'react'
 
 
 export function Home(){
     const {data: posts} = useGetPosts()
     const sortdata = posts.toReversed()
+
     return (
         <div className='Home'>
             <HomeStyleCSS>
