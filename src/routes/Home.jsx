@@ -17,6 +17,7 @@ export function Home(){
                 {sortdata.length === 0 ? <p>Carregando...</p> : (
                     sortdata.map((post)=> (
                         <div className='posts' key={post.id}>
+                                <input type="hidden" name="id" className='id' value={post.id}/>
                                 <h2 className="title"> {post.title} </h2>
                                 <h4>Autor: {post.author} | {post.date}</h4>
                                 <div className="body"> {post.content} </div>

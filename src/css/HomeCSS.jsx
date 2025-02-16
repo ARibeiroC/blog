@@ -6,7 +6,7 @@ export const HomeStyleCSS = styled.div`
     flex-direction: column;
     gap: 1rem;
 
-    padding: 0 .6rem;
+    padding:  .6rem;
 
     .posts {
         display: flex;

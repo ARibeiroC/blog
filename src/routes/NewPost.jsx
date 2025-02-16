@@ -19,10 +19,16 @@ export function NewPost() {
     const [author, setAuthor] = useState('')
     const [visibility, setVisibility] = useState('hidden')
     const [categories, setCategories] = useState([])
+
+    // REFS
     const refTitle = useRef()
     const refContent = useRef()
     const refAuthor = useRef()
+
+    // HOOK DE NAVEGAÇÃO
     const navigate = useNavigate()
+
+    // HOOK DE GETPOSTS
     const {data} = useGetPosts()
     
 
@@ -30,14 +36,14 @@ export function NewPost() {
     function setStates(array){
 
         // CONSTANTE QUE ARMAZENA AS CATEGORIAS SELECIONADAS NO FORMULÁRIO
-        const listChecks = []
+        const categoryList = []
 
         array.map((input, index)=>{
 
-            // ADICIONA AS CATEGORIAS SELECIONANDAS NO FORMULÁRIO NA COSNTANTE "LISTCHECKS"
+            // ADICIONA AS CATEGORIAS SELECIONANDAS NO FORMULÁRIO NA LISTA DE CATEGORIAS
             if (array[index].type === 'checkbox'){
                 if (input.checked === true){
-                    listChecks.push(input.name)
+                    categoryList.push(input.name)
                 }
             }
 
@@ -58,8 +64,8 @@ export function NewPost() {
             setVisibility('hidden')
         },2000)
 
-        // ADICIONA OS VALORES DA LISTCHECK NO STATE CATEGORY
-        setCategories(listChecks)
+        // ADICIONA OS VALORES DA LISTA DE CATEGORIAS NO STATE CATEGORY
+        setCategories(categoryList)
     }
 
     function createPost(post){
@@ -81,9 +87,10 @@ export function NewPost() {
         
         // CHAMA A FUNÇÃO QUE ADICIONA OS VALORES NOS STATES
         setStates(element)
+        
         refTitle.current.value = ""
-        refAuthor.current.value = ''
-        refContent.current.value = ''
+        refAuthor.current.value = ""
+        refContent.current.value = ""
     }
 
     useEffect(()=>{
@@ -120,7 +127,7 @@ export function NewPost() {
                         <legend>Categorias</legend>
                         <div className="item-check">
                             <input type="checkbox" name="Cosmologia" id="cosmology" />
-                            <label htmlFor="cosmology">Cosmologia</label>
+                            <label htmlFor="cosmology"> Cosmologia</label>
                         </div>
                         <div className="item-check">
                             <input
@@ -128,39 +135,39 @@ export function NewPost() {
                             name="Formação de Estrelas"
                             id="stellar-formation"
                             />
-                            <label htmlFor="stellar-formation">Formação de Estrelas</label>
+                            <label htmlFor="stellar-formation"> Formação de Estrelas</label>
                         </div>
                         <div className="item-check">
                             <input type="checkbox" name="Historia da Ciência" id="hystory-science" />
-                            <label htmlFor="hystory-science">Historia da Ciência</label>
+                            <label htmlFor="hystory-science"> Historia da Ciência</label>
                         </div>
                         <div className="item-check">
                             <input type="checkbox" name="Cultura" id="culture" />
-                            <label htmlFor="culture">Cultura</label>
+                            <label htmlFor="culture"> Cultura</label>
                         </div>
                         <div className="item-check">
                             <input type="checkbox" name="Astrobiologia" id="astrobiology" /> 
-                            <label htmlFor="astrobiology">Astrobiologia</label>
+                            <label htmlFor="astrobiology"> Astrobiologia</label>
                         </div>
                         <div className="item-check">
                             <input type="checkbox" name="Buraco Negro" id="black-hole" />
-                            <label htmlFor="black-hole">Buraco Negro</label>
+                            <label htmlFor="black-hole"> Buraco Negro</label>
                         </div>
                         <div className="item-check">
                             <input type="checkbox" name="Exploração Espacial" id="space-exploration" />
-                            <label htmlFor="space-exploration">Exploração Espacial</label>
+                            <label htmlFor="space-exploration"> Exploração Espacial</label>
                         </div>
                         <div className="item-check">
                             <input type="checkbox" name="Astrofísica" id="strophysics" />
-                            <label htmlFor="astrophysics">Astrofísica</label>
+                            <label htmlFor="astrophysics"> Astrofísica</label>
                         </div>
                         <div className="item-check">
                             <input type="checkbox" name="Estrelas" id="stars" /> 
-                            <label htmlFor="stars">Estrelas</label>
+                            <label htmlFor="stars"> Estrelas</label>
                         </div>
                         <div className="item-check">
                             <input type="checkbox" name="Marte" id="mars" /> 
-                            <label htmlFor="mars">Marte</label>
+                            <label htmlFor="mars"> Marte</label>
                         </div>
                     </fieldset>
                 </div>
