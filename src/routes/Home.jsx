@@ -12,7 +12,7 @@ export function Home(){
     return (
         <div className='Home'>
             <HomeStyleCSS>
-                <h2>ULTIMOS POSTS</h2>
+                <h2>ULTIMOS POSTS</h2> 
                 {sortdata.length === 0 ? <p>Carregando...</p> : (
                     sortdata.map((post)=> (
                         <div className='posts' key={post.id}>
