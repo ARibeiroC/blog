@@ -50,7 +50,10 @@ export function Admin(){
                                 setEditID(post.id)
                                 setCallback(1)
                             }}>Editar</button>
-                            <button className="btn delete-btn" onClick={()=>{deletePost(post.id)}}>Excluir</button>
+                            <button className="btn delete-btn" onClick={()=>{
+                                deletePost(post.id)
+                                setCallback(1)
+                            }}>Excluir</button>
                         </div>
                     </div>
                 ))
