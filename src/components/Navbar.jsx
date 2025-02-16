@@ -28,7 +28,7 @@ export function Navbar(){
                 <i className="fa-solid fa-bars"></i>
             </label>
             <h2>
-                <Link to={'/'}>Blog</Link>
+                <Link to={'/'}>Singularity News</Link>
             </h2>
             <ul ref={menu}>
                 <li>
