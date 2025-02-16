@@ -1,8 +1,24 @@
-# React + Vite
+# PROJETO DE DESENVOLVIMENTO DE UMA PÁGINA DE POSTAGENS
+Neste projeto desenvolvemos uma aplicação web onde podemos postar, editar e excluir assuntos relacionados a astronômia, nele utilizamos as stacks de React, React Router DOM, Styled Components.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<img src="https://i.ibb.co/1tjgZkjc/blog.png" />
 
-Currently, two official plugins are available:
+<h2>ESTE PROJETO AINDA ESTA EM CONSTRUÇÃO, PRECISANDO FINALIZAR ALGUMAS FUNCIONALIDADES.</h2>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Esquema do Projeto
+- [x] Header
+  - [x] Menu
+    - [x] Funcionalidade de navegar entre os menus
+  - [x] Logo
+- [x] Home
+  - [x] Component Post
+    - [x] Exibir todas as categorias relacionadas ao post.
+    - [x] LER MAIS (Funcionalidade que abre a página do post.)
+  - [x] Listar Posts por ordem de datas decrescente.
+- [x] Novo Post
+  - [x] Formulário Novo Post
+  - [x] Função de Criar Post
+- [x] Gerenciar Post
+  - [x] Lista de Posts
+  - [ ] Função Editar Post
+  - [ ] Função Excluir Post
