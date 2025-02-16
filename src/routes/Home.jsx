@@ -1,14 +1,13 @@
-import { useGetPosts } from '../hook/useGetPosts'
-
 import { Link } from 'react-router-dom'
 
 // STYLED COMPONENTS IMPORT
 import { HomeStyleCSS } from '../css/HomeCSS'
 
+import { useGetPosts } from '../hook/useGetPosts'
 
 export function Home(){
-    const {data: posts} = useGetPosts()
-    const sortdata = posts.toReversed()
+    const {data} = useGetPosts()
+    const sortdata = data.toReversed()
 
     return (
         <div className='Home'>

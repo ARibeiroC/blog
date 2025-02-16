@@ -1,10 +1,6 @@
-import { useState, useEffect } from "react"
-
 export function useController(newData){
 
-
     function deletePost(id){
-        console.log(id)
         const newArray = newData.map((post)=>{
             return post.id !== id ? post : null
         }).filter((post)=> post !== null)

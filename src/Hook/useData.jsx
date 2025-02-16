@@ -1,6 +1,4 @@
-
-
-export function useData(){
+export function useDataPosts(){
   const posts = [
     { 
       id: 1,
