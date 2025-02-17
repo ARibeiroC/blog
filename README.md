@@ -5,6 +5,8 @@ Neste projeto desenvolvemos uma aplicação web onde podemos postar, editar e ex
 
 <h2>ESTE PROJETO AINDA ESTA EM CONSTRUÇÃO, PRECISANDO FINALIZAR ALGUMAS FUNCIONALIDADES.</h2>
 
+ACESSE: [Singularity News](https://singularitynews.netlify.app/blog)
+
 ## Esquema do Projeto
 - [x] Header
   - [x] Menu
