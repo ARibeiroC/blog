@@ -21,6 +21,11 @@ export function NewPost() {
     const [categories, setCategories] = useState([])
 
     // REFS
+    const formRefs = {
+        title: useRef(),
+        content: useRef(),
+        author: useRef()
+    }
     const refTitle = useRef()
     const refContent = useRef()
     const refAuthor = useRef()
@@ -60,9 +65,9 @@ export function NewPost() {
 
         setVisibility('visible')
 
-        setTimeout(()=>{
-            setVisibility('hidden')
-        },2000)
+        // setTimeout(()=>{
+        //     setVisibility('hidden')
+        // },2000)
 
         // ADICIONA OS VALORES DA LISTA DE CATEGORIAS NO STATE CATEGORY
         setCategories(categoryList)
@@ -72,7 +77,7 @@ export function NewPost() {
         data.push(post)
         localStorage.setItem('posts', JSON.stringify(data))
         setTimeout(()=>{
-            navigate('/')
+            navigate('/blog/new-post')
         }, 2000)
     }
 
@@ -88,9 +93,10 @@ export function NewPost() {
         // CHAMA A FUNÇÃO QUE ADICIONA OS VALORES NOS STATES
         setStates(element)
         
-        refTitle.current.value = ""
-        refAuthor.current.value = ""
-        refContent.current.value = ""
+        formRefs.title.current.value = ""
+        formRefs.content.current.value = ""
+        formRefs.author.current.value = ""
+        console.log(formRefs.title)
     }
 
     useEffect(()=>{
@@ -111,15 +117,15 @@ export function NewPost() {
                 <div className="input-fields">
                     <div className="form-control">
                         <label htmlFor="title">Título: </label>
-                        <input type="text" placeholder="" id="title" name="title" ref={refTitle} required />
+                        <input type="text" placeholder="" id="title" name="title" ref={formRefs.title} required />
                     </div>
                     <div className="form-control">
                         <label htmlFor="content">Conteúdo: </label>
-                        <textarea name="content" id="content"  ref={refContent} required></textarea>
+                        <textarea name="content" id="content"  ref={formRefs.content} required></textarea>
                     </div>
                     <div className="form-control">
                         <label htmlFor="author">autor: </label>
-                        <input type="text" placeholder="" id="author" name="author" ref={refAuthor} required />
+                        <input type="text" placeholder="" id="author" name="author" ref={formRefs.author} required />
                     </div>
                 </div>
                 <div className="checkbox-items">

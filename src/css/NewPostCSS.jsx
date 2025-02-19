@@ -4,7 +4,11 @@ export const NewPostCSS = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    // justify-content: center;
     gap: .4rem;
+
+    padding: 1rem 0;
+    // height: 90vh;
 
     h2 {
         margin-inline: 20%;
@@ -22,14 +26,14 @@ export const NewPostCSS = styled.div`
         border: 1px solid white;
         border-radius: .6rem;
 
-        & .input-fields {
+        .input-fields {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            // justify-content: space-between;
 
-            flex: 1;
+            // flex: 1;
 
-            & .form-control{
+            .form-control{
                 display: flex;
                 flex-direction: column;
                 
@@ -78,8 +82,8 @@ export const NewPostCSS = styled.div`
 
                 .item-check {
                     margin-bottom: .4rem;
-                    grind-column: 1/3;
-                    grind-row: 1/4;
+                    grid-column: 1/3;
+                    grid-row: 1/4;
                 }
             }
         }
@@ -102,6 +106,36 @@ export const NewPostCSS = styled.div`
             color: #0e1217;
             font-weight: bold;
         }
+    }
+
+    @media (max-width: 425px){
+        h2 {
+            margin: 0 3%;
+        }
+
+        form{
+            max-width: 100%;
+
+            .input-fields {
+                gap: .4rem;               
+                .form-control {
+                    #content{
+                        height: 100px;
+                    }
+                }
+            }
+
+            #fieldset {
+                display: flex;
+                flex-wrap: wrap;
+                gap: .6rem;
+                height: 30vh;
+                width: 100%;
+            }
+        }
+    }
+
+    @media (max-width: 320px){
     }
     
 `
